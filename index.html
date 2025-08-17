@@ -22,9 +22,19 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="menu-toggle">
-  <span class="menu-icon">☰</span>
-</div>
+      <div class="logo-mobile">
+        <img src="images/logo.jpg" alt="Church Logo" class="logo-img">
+        <div class="logo-text">
+          <h1>
+            <span class="christian">Christian</span>
+            <span class="presbyterian">Presbyterian</span>
+          </h1>
+          <p class="church">──── C H U R C H ────</p>
+        </div>
+      </div>
+<button class="menu-toggle" aria-label="Toggle menu">
+  <span class="hamburger">☰</span>
+</button>
       <ul class="menu">
         <li><a href="#">Home</a></li>
 
@@ -72,9 +82,9 @@
     <!-- Main Text -->
     <div class="landing-content">
       <div class="welcome-text">
-        <h2>1 John 4:8</h2>
-        <h1>GOD IS LOVE</h1>
-        <p class="inspiration">Website is still under development, stay tuned</p>
+        <h2>More Than</h2>
+        <h1>A Church</h1>
+        <p class="inspiration">We Are One Family</p>
       </div>
     </div>
 
@@ -118,11 +128,38 @@
     </div>
   </section>
   <script>
+  // Mobile menu toggle
   document.querySelector('.menu-toggle').addEventListener('click', function() {
     document.querySelector('.menu').classList.toggle('active');
+  });
+
+  // Dropdown functionality that works on both desktop and mobile
+  document.querySelectorAll('.dropdown > a').forEach(dropdown => {
+    dropdown.addEventListener('click', function(e) {
+      // Close all other open dropdowns first
+      document.querySelectorAll('.dropdown').forEach(otherDropdown => {
+        if (otherDropdown !== this.parentElement) {
+          otherDropdown.classList.remove('active');
+        }
+      });
+      
+      // For mobile, toggle the clicked dropdown
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        this.parentElement.classList.toggle('active');
+      }
+      // Desktop will use the CSS hover effect
+    });
+  });
+
+  // Close dropdowns when clicking elsewhere
+  document.addEventListener('click', function(e) {
+    if (!e.target.matches('.dropdown, .dropdown *')) {
+      document.querySelectorAll('.dropdown').forEach(dropdown => {
+        dropdown.classList.remove('active');
+      });
+    }
   });
 </script>
 </body>
 </html>
-
-
