@@ -136,6 +136,9 @@ nav {
   z-index: 2;
   width: 90%;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
 }
 
 .welcome-text h2 {
@@ -317,4 +320,106 @@ nav {
 
 .event-btn:hover {
   background: #3e8e41;
+}
+
+/* ===== Mobile Responsiveness ===== */
+@media (max-width: 768px) {
+  /* Logo adjustments */
+  .logo {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .logo-text h1 {
+    font-size: 28px;
+  }
+  
+  .logo-text .church {
+    letter-spacing: 5px;
+    font-size: 14px;
+  }
+  
+  /* Landing text adjustments */
+  .welcome-text h2 {
+    font-size: 2.5rem;
+  }
+  
+  .welcome-text h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+  }
+  
+  .inspiration {
+    font-size: 1.8rem;
+    margin-top: 15px;
+  }
+  
+  /* Navigation */
+  nav {
+    padding: 10px 0;
+  }
+  
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+  
+  .menu.active {
+    display: flex;
+  }
+  
+  .dropdown-content {
+    position: static;
+    display: none;
+    width: 100%;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: none;
+  }
+  
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+  
+  /* Menu toggle button */
+  .menu-toggle {
+    display: block;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  /* Donation button */
+  .donate-btn-top {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  
+  /* Subscription form */
+  .subscribe-form-bottom {
+    flex-direction: column;
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-text h2 {
+    font-size: 2rem;
+  }
+  
+  .welcome-text h1 {
+    font-size: 3rem;
+  }
+  
+  .inspiration {
+    font-size: 1.5rem;
+  }
+  
+  .sermon-content h2,
+  .events-banner h2 {
+    font-size: 2rem;
+  }
 }
