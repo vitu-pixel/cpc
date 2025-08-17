@@ -22,6 +22,9 @@
 
     <!-- Navigation -->
     <nav>
+        <div class="menu-toggle">
+  <span class="menu-icon">☰</span>
+</div>
       <ul class="menu">
         <li><a href="#">Home</a></li>
 
@@ -72,7 +75,6 @@
         <h2>More Than</h2>
         <h1>A Church</h1>
         <p class="inspiration">We Are One Family</p>
-        <p class="inspiration">Website still under construction</p>
       </div>
     </div>
 
@@ -115,6 +117,10 @@
       </div>
     </div>
   </section>
+  <script>
+  document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.querySelector('.menu').classList.toggle('active');
+  });
+</script>
 </body>
 </html>
-
