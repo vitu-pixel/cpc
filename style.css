@@ -423,3 +423,42 @@ nav {
     font-size: 2rem;
   }
 }
+/* --- Desktop Dropdown --- */
+@media (min-width: 769px) {
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #1c1c1c;
+    min-width: 180px;
+    z-index: 1000;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+
+/* --- Mobile Dropdown --- */
+@media (max-width: 768px) {
+  .dropdown-content {
+    display: none;
+    position: static;
+    width: 100%;
+    background: #2a2a2a;
+  }
+  
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown > a::after {
+    content: ' ▾';
+    float: right;
+  }
+  
+  .dropdown.active > a::after {
+    content: ' ▴';
+  }
+}
