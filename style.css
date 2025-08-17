@@ -1,3 +1,4 @@
+/* ===== Base Styles ===== */
 body {
   margin: 0;
   padding: 0;
@@ -10,9 +11,10 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
-/* --- Logo Section --- */
+/* ===== Logo Section ===== */
 .logo {
   display: flex;
   align-items: center;
@@ -46,11 +48,12 @@ header {
   letter-spacing: 10px;
 }
 
-/* --- Navigation --- */
+/* ===== Navigation ===== */
 nav {
   margin-top: 20px;
   background: #1c1c1c;
   width: 100%;
+  position: relative;
 }
 
 .menu {
@@ -71,23 +74,19 @@ nav {
   color: white;
   text-decoration: none;
   font-size: 16px;
+  transition: all 0.3s ease;
 }
 
 .menu a:hover {
   background: #0056D2;
 }
 
-/* Dropdown */
+/* ===== Dropdown Menu ===== */
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 48px;
-  left: 0;
   background: #1c1c1c;
   min-width: 180px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
   z-index: 1000;
 }
 
@@ -96,15 +95,26 @@ nav {
   font-size: 15px;
 }
 
-.dropdown-content li a:hover {
-  background: #0056D2;
-}
-
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* --- Landing Section --- */
+/* ===== Menu Toggle ===== */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+}
+
+/* ===== Landing Section ===== */
 .landing {
   position: relative;
   height: 100vh;
@@ -138,7 +148,6 @@ nav {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  text-align: center;
 }
 
 .welcome-text h2 {
@@ -167,7 +176,7 @@ nav {
   font-weight: 500;
 }
 
-/* Donation Button */
+/* ===== Donation Button ===== */
 .donate-btn-top {
   position: fixed;
   top: 20px;
@@ -185,7 +194,7 @@ nav {
   background: #3e8e41;
 }
 
-/* Subscription Form */
+/* ===== Subscription Form ===== */
 .subscribe-form-bottom {
   position: absolute;
   bottom: 50px;
@@ -218,7 +227,7 @@ nav {
   background: #0044aa;
 }
 
-/* --- Sermon CTA Section --- */
+/* ===== Sermon CTA Section ===== */
 .sermon-cta {
   background: #1c1c1c;
   color: white;
@@ -269,7 +278,7 @@ nav {
   background: rgba(0, 86, 210, 0.1);
 }
 
-/* --- Events Banner --- */
+/* ===== Events Banner ===== */
 .events-banner {
   background: #121212;
   color: white;
@@ -339,7 +348,65 @@ nav {
     font-size: 14px;
   }
   
-  /* Landing text adjustments */
+  /* Menu toggle */
+  .menu-toggle {
+    display: block;
+  }
+  
+  /* Navigation */
+  .menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+  
+  .menu.active {
+    display: flex;
+  }
+  
+  .menu li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .menu a {
+    padding: 15px 20px;
+    position: relative;
+  }
+  
+  /* Dropdown arrows */
+  .dropdown > a::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid white;
+    transition: transform 0.3s ease;
+  }
+  
+  .dropdown.active > a::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+  
+  /* Dropdown content */
+  .dropdown-content {
+    position: static;
+    display: none;
+    width: 100%;
+    background: #2a2a2a;
+  }
+  
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+  
+  /* Landing text */
   .welcome-text h2 {
     font-size: 2.5rem;
   }
@@ -352,44 +419,6 @@ nav {
   .inspiration {
     font-size: 1.8rem;
     margin-top: 15px;
-  }
-  
-  /* Navigation */
-  nav {
-    padding: 10px 0;
-  }
-  
-  .menu {
-    flex-direction: column;
-    align-items: center;
-    display: none;
-  }
-  
-  .menu.active {
-    display: flex;
-  }
-  
-  .dropdown-content {
-    position: static;
-    display: none;
-    width: 100%;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: none;
-  }
-  
-  .dropdown.active .dropdown-content {
-    display: block;
-  }
-  
-  /* Menu toggle button */
-  .menu-toggle {
-    display: block;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
   }
   
   /* Donation button */
@@ -422,43 +451,8 @@ nav {
   .events-banner h2 {
     font-size: 2rem;
   }
-}
-/* --- Desktop Dropdown --- */
-@media (min-width: 769px) {
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #1c1c1c;
-    min-width: 180px;
-    z-index: 1000;
-  }
   
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-}
-
-/* --- Mobile Dropdown --- */
-@media (max-width: 768px) {
-  .dropdown-content {
-    display: none;
-    position: static;
-    width: 100%;
-    background: #2a2a2a;
-  }
-  
-  .dropdown.active .dropdown-content {
-    display: block;
-  }
-  
-  .dropdown > a::after {
-    content: ' ▾';
-    float: right;
-  }
-  
-  .dropdown.active > a::after {
-    content: ' ▴';
+  .event-card {
+    min-width: 100%;
   }
 }
