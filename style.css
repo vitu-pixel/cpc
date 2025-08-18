@@ -114,11 +114,42 @@ nav {
   z-index: 1001;
 }
 
+/* ===== Slider Styles ===== */
+/* ===== Slider Styles ===== */
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transform: translateX(100%); /* Start off-screen to the right */
+  transition: transform 1s ease-in-out;
+}
+
+.slide.active {
+  transform: translateX(0); /* Slide in from right */
+}
+
+.slide.prev {
+  transform: translateX(-100%); /* Slide out to left */
+}
+
+/* Remove blur effect by deleting .landing-overlay styles */
+
 /* ===== Landing Section ===== */
 .landing {
   position: relative;
   height: 100vh;
-  background: url('images/bagggg.jpg') no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,11 +170,12 @@ nav {
     rgba(0, 0, 0, 0.7) 100%
   );
   backdrop-filter: blur(2px);
+  z-index: 2;
 }
 
 .landing-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
@@ -162,7 +194,7 @@ nav {
   font-size: 8rem;
   margin: 10px 0;
   font-weight: bold;
-  color: white;
+  color: #f7f7f7;
   text-shadow: 0 3px 15px rgba(0,0,0,0.9);
   line-height: 1;
 }
@@ -204,7 +236,7 @@ nav {
   max-width: 500px;
   display: flex;
   gap: 10px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .subscribe-form-bottom input {
@@ -421,6 +453,11 @@ nav {
     margin-top: 15px;
   }
   
+  /* Slider dots */
+  .slider-dots {
+    bottom: 120px;
+  }
+  
   /* Donation button */
   .donate-btn-top {
     padding: 10px 15px;
@@ -454,5 +491,87 @@ nav {
   
   .event-card {
     min-width: 100%;
+  }
+}
+/* ===== Welcome Text Container ===== */
+/* ===== Welcome Container ===== */
+.welcome-container {
+  background: #0056D2;
+  padding: 40px 50px;
+  border-radius: 10px;
+  width: fit-content;
+  opacity: 0.80;
+  max-width: 80%;
+  margin: 0 auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  position: relative;
+  border-bottom: 5px solid #FFD700; /* Gold accent line */
+  text-align: center;
+}
+
+/* Text Styles */
+.welcome-text h1 {
+  color: white;
+  font-size: 5rem;
+  margin: 15px 0;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.scripture-reference {
+  color: rgba(255,255,255,0.9);
+  font-size: 1.8rem;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.inspiration {
+  color: white;
+  font-size: 1.8rem;
+  margin-top: 20px;
+  font-weight: 300;
+}
+
+/* Decorative Elements */
+.welcome-divider {
+  margin: 20px auto;
+  width: 60px;
+  height: 3px;
+  background: #FFD700;
+  position: relative;
+}
+
+.cross-icon {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0056D2;
+  color: #FFD700;
+  font-size: 1.8rem;
+  padding: 0 10px;
+}
+
+/* Positioning Adjustments */
+.landing-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 3;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .welcome-container {
+    padding: 30px;
+  }
+  .welcome-text h1 {
+    font-size: 3.5rem;
+  }
+  .scripture-reference, 
+  .inspiration {
+    font-size: 1.4rem;
   }
 }
