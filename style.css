@@ -496,7 +496,7 @@ nav {
 /* ===== Welcome Text Container ===== */
 /* ===== Welcome Container ===== */
 .welcome-container {
-  background: #0056D2;
+  background: none;
   padding: 40px 50px;
   border-radius: 10px;
   width: fit-content;
@@ -575,3 +575,4 @@ nav {
     font-size: 1.4rem;
   }
 }
+
