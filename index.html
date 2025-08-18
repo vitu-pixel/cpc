@@ -61,42 +61,40 @@
 
   <!-- Landing Section with Rotating Gallery -->
   <section class="landing">
-  <div class="slider">
-    <div class="slide active" style="background-image: url('images/bg1.jpg');"></div>
-    <div class="slide" style="background-image: url('images/moniq.jpg');"></div>
-    <div class="slide" style="background-image: url('images/wmbg.jpg');"></div>
-    <div class="slide" style="background-image: url('images/past.jpg');"></div>
-  </div>
-  
-  <!-- Removed blur by deleting landing-overlay div -->
-  <a href="#" class="donate-btn-top">Donate Now</a>
-  
-  <!-- Inside your landing section -->
-<div class="landing-content">
-  <div class="welcome-container">
-    <div class="welcome-text">
-      <div class="scripture-reference">1 John 4:8</div>
-      <h1>GOD IS LOVE</h1>
-      <div class="welcome-divider">
-        <span class="cross-icon">✝</span>
-      </div>
-      <p class="inspiration">Welcome to our growing community</p>
+    <div class="slider">
+      <div class="slide active" style="background-image: url('images/bg1.jpg');"></div>
+      <div class="slide" style="background-image: url('images/moniq.jpg');"></div>
+      <div class="slide" style="background-image: url('images/wmbg.jpg');"></div>
+      <div class="slide" style="background-image: url('images/past.jpg');"></div>
     </div>
-  </div>
-</div>
-  
-  <form class="subscribe-form-bottom">
-    <input type="email" placeholder="Your Email" required>
-    <button type="submit">Join Our Community</button>
-  </form>
-  
-  <div class="slider-dots">
-    <span class="dot active" data-slide="0"></span>
-    <span class="dot" data-slide="1"></span>
-    <span class="dot" data-slide="2"></span>
-    <span class="dot" data-slide="3"></span>
-  </div>
-</section>
+    
+    <a href="#" class="donate-btn-top">Donate Now</a>
+    
+    <div class="landing-content">
+      <div class="welcome-container">
+        <div class="welcome-text">
+          <div class="tagline">1 John 4:8 </div>
+          <h1>GOD IS LOVE</h1>
+          <div class="welcome-divider">
+            <span class="cross-icon">✝</span>
+          </div>
+          <p class="family-text">Welcome to our growing Community/p>
+        </div>
+      </div>
+    </div>
+    
+    <form class="subscribe-form-bottom">
+      <input type="email" placeholder="Your Email" required>
+      <button type="submit">Join Our Community</button>
+    </form>
+    
+    <div class="slider-dots">
+      <span class="dot active" data-slide="0"></span>
+      <span class="dot" data-slide="1"></span>
+      <span class="dot" data-slide="2"></span>
+      <span class="dot" data-slide="3"></span>
+    </div>
+  </section>
 
   <!-- Sermon CTA Section -->
   <section class="sermon-cta">
@@ -156,52 +154,48 @@
     });
 
     // Slider Functionality
-    // Replace the existing slider script with this:
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
 
-function showSlide(n) {
-  // Mark current slide as "prev" before changing
-  slides[currentSlide].classList.remove('active');
-  slides[currentSlide].classList.add('prev');
-  
-  currentSlide = (n + slides.length) % slides.length;
-  
-  // Reset all slides (except new active one) to right
-  slides.forEach((slide, index) => {
-    if(index !== currentSlide) {
-      slide.classList.remove('active', 'prev');
-      slide.style.transform = 'translateX(100%)';
+    function showSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      slides[currentSlide].classList.add('prev');
+      
+      currentSlide = (n + slides.length) % slides.length;
+      
+      slides.forEach((slide, index) => {
+        if(index !== currentSlide) {
+          slide.classList.remove('active', 'prev');
+          slide.style.transform = 'translateX(100%)';
+        }
+      });
+      
+      slides[currentSlide].classList.add('active');
+      slides[currentSlide].style.transform = 'translateX(0)';
+      
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[currentSlide].classList.add('active');
     }
-  });
-  
-  slides[currentSlide].classList.add('active');
-  slides[currentSlide].style.transform = 'translateX(0)';
-  
-  // Update dots
-  dots.forEach(dot => dot.classList.remove('active'));
-  dots[currentSlide].classList.add('active');
-}
 
-function nextSlide() {
-  showSlide(currentSlide + 1);
-}
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
 
-// Initialize first slide
-slides[0].style.transform = 'translateX(0)';
+    // Initialize first slide
+    slides[0].style.transform = 'translateX(0)';
 
-// Auto-rotate every 5 seconds
-let slideInterval = setInterval(nextSlide, 5000);
+    // Auto-rotate every 5 seconds
+    let slideInterval = setInterval(nextSlide, 5000);
 
-// Dot navigation
-dots.forEach(dot => {
-  dot.addEventListener('click', function() {
-    clearInterval(slideInterval);
-    showSlide(parseInt(this.dataset.slide));
-    slideInterval = setInterval(nextSlide, 5000);
-  });
-});
+    // Dot navigation
+    dots.forEach(dot => {
+      dot.addEventListener('click', function() {
+        clearInterval(slideInterval);
+        showSlide(parseInt(this.dataset.slide));
+        slideInterval = setInterval(nextSlide, 5000);
+      });
+    });
   </script>
 </body>
 </html>
