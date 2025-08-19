@@ -1,0 +1,429 @@
+/* ===== Leadership Page Specific Styles ===== */
+
+/* Main Structure */
+.leadership-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: white;
+}
+
+/* Intro Section */
+.intro-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.intro-section h1 {
+  font-size: 2.8rem;
+  color: #0056D2;
+  margin-bottom: 15px;
+}
+
+.gold-divider {
+  width: 100px;
+  height: 4px;
+  background: #FFD700;
+  margin: 0 auto 20px;
+}
+/* Pastor Bio Section */
+.pastor-bio {
+  background: #1c1c1c;
+  border-radius: 10px;
+  max-width: 1000px;
+  margin: 40px auto;
+  overflow: hidden;
+}
+
+.bio-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bio-image {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.bio-text {
+  flex: 1;
+  min-width: 300px;
+  padding: 30px;
+}
+
+.position {
+  color: #FFD700;
+  font-weight: bold;
+  margin: 10px 0 20px;
+  font-size: 1.2rem;
+}
+
+.pastor-quote {
+  border-left: 4px solid #0056D2;
+  padding-left: 20px;
+  font-style: italic;
+  margin: 25px 0;
+  color: #FFD700;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .bio-image {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+/* Leaders Carousel */
+.leaders-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  overflow: hidden;
+  padding: 40px 0;
+  position: relative;
+  margin: 0 auto 60px;
+  max-width: 1200px;
+}
+
+.leader-card {
+  flex: 0 0 280px;
+  background: #1c1c1c;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  transform: translateX(100%);
+  opacity: 0;
+  position: relative;
+  animation: slideIn 8s infinite ease-in-out;
+}
+
+.leader-card.active {
+  transform: scale(1.1);
+  z-index: 2;
+  opacity: 1;
+  box-shadow: 0 10px 25px rgba(0, 86, 210, 0.3);
+  animation: none;
+}
+
+.leader-photo {
+  height: 300px;
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+}
+
+.contact-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 86, 210, 0.8);
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.leader-card:hover .contact-overlay {
+  opacity: 1;
+}
+
+.contact-btn {
+  padding: 8px 15px;
+  background: #FFD700;
+  color: #121212;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: white;
+}
+
+.leader-info {
+  padding: 20px;
+}
+
+.position {
+  color: #FFD700;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.tenure {
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #aaa;
+}
+
+/* Animation Keyframes */
+@keyframes slideIn {
+  0% { transform: translateX(100%); opacity: 0; }
+  20% { transform: translateX(0); opacity: 0.9; }
+  80% { transform: translateX(0); opacity: 0.9; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+
+/* Stagger animations */
+.leader-card:nth-child(1) { animation-delay: 0s; }
+.leader-card:nth-child(2) { animation-delay: 2s; }
+.leader-card:nth-child(3) { animation-delay: 4s; }
+
+/* Events Section */
+.events-section {
+  text-align: center;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.events-section h2 {
+  margin-bottom: 30px;
+  color: #0056D2;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.event-card {
+  background: #292828;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.event-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.event-card h3 {
+  padding: 15px;
+  margin: 0;
+}
+.event-card a{
+     background: #0056D2;
+  color: white;
+  
+}
+.event-card a:hover{
+    background-color: white;
+    color: #0056D2;
+}
+
+
+
+.event-card p {
+  padding: 0 15px 15px;
+  color: #FFD700;
+}
+
+/* Pastor Bio Section (keep existing styles) */
+.pastor-bio {
+  background: #1c1c1c;
+  border-radius: 10px;
+  max-width: 1000px;
+  margin: 40px auto;
+  overflow: hidden;
+}
+
+/* ... (keep all your existing pastor bio styles) ... */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .leaders-carousel {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .leader-card {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 350px;
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  .leader-card.active {
+    transform: none !important;
+  }
+  
+  .events-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .intro-section h1 {
+    font-size: 2.2rem;
+  }
+}
+.back-to-top {
+  /* existing styles */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-arrow {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #0056D2;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+}
+
+
+.contact-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.email-btn {
+  background: #0056D2;
+  color: white;
+}
+.email-btn:hover {
+  background: #ffffff;
+  color: #0056D2;
+}
+
+.call-btn {
+  background: #FFD700;
+  color: #121212;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: #1c1c1c;
+    flex-direction: column;
+    padding: 80px 20px 20px;
+    transition: right 0.3s ease;
+    z-index: 999;
+  }
+
+  .menu.active {
+    right: 0;
+  }
+
+  .menu li {
+    margin: 15px 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+    z-index: 1000;
+    position: relative;
+  }
+
+  .menu-toggle .hamburger {
+    font-size: 2rem;
+  }
+
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Ensure both Home and Leadership are visible */
+  .menu li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    font-size: 1.2rem;
+  }
+
+  .menu li a.active {
+    color: #FFD700;
+    border-left: 3px solid #FFD700;
+    padding-left: 15px;
+  }
+}
+/* Mobile Menu Active State */
+@media (max-width: 768px) {
+  .menu li a.active {
+    color: #FFD700;
+    border-left: 3px solid #FFD700;
+    padding-left: 15px;
+    pointer-events: none; /* Disable clicking on active page */
+  }
+}
+.menu a {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
