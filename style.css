@@ -154,3 +154,30 @@ nav { margin-top: 20px; background: #1c1c1c; width: 100%; position: relative; z-
     font-size: 1rem;
   }
 }
+.home-button {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background: #0056D2;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.home-button:hover {
+  background: #0044aa;
+  transform: translateY(-3px);
+}
+
+.home-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
